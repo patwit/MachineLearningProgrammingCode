@@ -22,10 +22,14 @@ p = zeros(size(X, 1), 1);
 %
 
 
+% compute hidden layer
+X = [ones(m,1) X];
+A = sigmoid(X * Theta1');
 
-
-
-
+% compute output layer
+A = [ones(m,1) A];
+h = sigmoid(A * Theta2');
+[value, p] = max(h,[],2);
 
 
 
